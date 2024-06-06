@@ -1,0 +1,38 @@
+---
+import ExperiencieItem from "./ExperiencieItem.astro";
+
+const EXPERIENCIE = [
+    {
+        date: "May - Present",
+        title: "Mentoring - Bootcamp Full-stack developer | ISDI CODERS",
+        description:
+            " - Provide technical and emotional guidance to bootcamp students, - resolve technical issues and offered emotional support during their training, - collaborate with instructor to tailor mentoring to student needs",
+    },
+    {
+        date: "January - May, 2024",
+        title: "Bootcamp - full-stack developer",
+        description:
+            "Proficient in Agile, Scrum, TDD, Git, and SOLID principles. Skilled in front-end technologies including JavaScript, React, HTML/CSS, and Tailwind/Sass, as well as back-end tech like MongoDB, Express.js, Node.js, JWT, and CORS. Led development of FutNow App simplifying football match search/booking and Isdigram, a social web platform, both undergoing continuous feature enhancements.",
+    },
+    {
+        date: "May 2023 - Present",
+        title: "Freelance developer",
+        description:
+            "Led the development of the Rock & EDM Festival Website, crafting a modern, responsive design using HTML, CSS, and JavaScript to ensure optimal viewing across various devices. Additionally, spearheaded the creation of the Café Blog Website, designing an engaging interface with HTML, Sass, and JavaScript, enabling seamless exploration of diverse articles and coffee-centric content. Currently, actively engaged in the development of new projects.",
+    },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-9">
+    {
+        EXPERIENCIE.map((experiencie) => (
+            <li
+                class="
+    mb-10
+    ms-4"
+            >
+                <ExperiencieItem {...experiencie} />
+            </li>
+        ))
+    }
+</ol>

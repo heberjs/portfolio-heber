@@ -1,0 +1,99 @@
+---
+import Javascript from "../icons/Javascript.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import React from "../icons/Reactjs.astro";
+import Node from "../icons/Nodejs.astro";
+import Express from "../icons/Expressjs.astro";
+import Typescript from "../icons/Typescript.astro";
+import MongoDB from "../icons/MongoDB.astro";
+import Github from "../icons/GithubIcon.astro";
+
+const TAGS = {
+    JAVASCRIPT: {
+        name: "Javascript",
+        class: " text-white",
+        icon: Javascript,
+    },
+    TAILWIND: {
+        name: "Tailwind",
+        class: " text-white",
+        icon: Tailwind,
+    },
+    REACT: {
+        name: "React",
+        class: " text-white",
+        icon: React,
+    },
+    NODE: {
+        name: "Node",
+        class: " text-white",
+        icon: Node,
+    },
+    Express: {
+        name: "Express",
+        class: " text-white",
+        icon: Express,
+    },
+    TypeScript: {
+        name: "Typescript",
+        class: " text-white",
+        icon: Typescript,
+    },
+    MongoDB: {
+        name: "MongoDB",
+        class: " text-white",
+        icon: MongoDB,
+    },
+    Github: {
+        name: "Github",
+        class: " text-white",
+        icon: Github,
+    },
+};
+const PROJECTS = [
+    {
+        title: "FutN⚽w",
+        description:
+            "FutNow simplifies finding and booking football matches in your city, connecting players without teams or available fields.",
+        link: "#",
+        github: "https://github.com/b00tc4mp/isdi-bootcamp-202402/pull/467",
+        image: "../public/projects/svgl.webp",
+        tags: [
+            TAGS.JAVASCRIPT,
+            TAGS.TAILWIND,
+            TAGS.REACT,
+            TAGS.NODE,
+            TAGS.Express,
+            TAGS.TypeScript,
+            TAGS.MongoDB,
+            TAGS.Github,
+        ],
+    },
+];
+---
+
+{
+    PROJECTS.map(({ title, description, link, github, image, tags }) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-yellow-200">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="grid grid-cols-4  gap-x-4 mb-2">
+                {tags.map((tag) => (
+                    <li class="flex mb-2">
+                        <span
+                            class={`flex justify-center gap-x-2 rounded-full tex-xs ${tag.class} py-1 px-2`}
+                        >
+                            <tag.icon class="size-6" />
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img
+                class="rounded shadow-2xl shadow-white/10"
+                src={image}
+                alt={title}
+            />
+        </article>
+    ))
+}
