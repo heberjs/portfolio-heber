@@ -7,7 +7,11 @@ import Express from "../icons/Expressjs.astro";
 import Typescript from "../icons/Typescript.astro";
 import MongoDB from "../icons/MongoDB.astro";
 import Github from "../icons/GithubIcon.astro";
-
+import LinkButton from "./LinkButton.astro";
+import GithubIcon from "../icons/GithubIcon.astro";
+import Html5 from "../icons/Html5.astro";
+import Css from "../icons/Css3.astro";
+import LinkIcon from "../icons/LinkIcon.astro";
 const TAGS = {
     JAVASCRIPT: {
         name: "Javascript",
@@ -49,13 +53,22 @@ const TAGS = {
         class: " text-white",
         icon: Github,
     },
+    Html5: {
+        name: "HTML5",
+        class: "text-white",
+        icon: Html5,
+    },
+    Css3: {
+        name: "CSS",
+        class: "text-white",
+        icon: Css,
+    },
 };
 const PROJECTS = [
     {
-        title: "FutN⚽w",
+        title: "FutNow",
         description:
             "FutNow simplifies finding and booking football matches in your city, connecting players without teams or available fields.",
-        link: "#",
         github: "https://github.com/b00tc4mp/isdi-bootcamp-202402/pull/467",
         image: "../public/projects/svgl.webp",
         tags: [
@@ -69,31 +82,64 @@ const PROJECTS = [
             TAGS.Github,
         ],
     },
+    {
+        title: "Blog de café",
+        description:
+            "I've created a coffee blog using  HTML and SCSS, providing insights into the world of coffee.",
+        link: "https://helpful-ganache-2c9a36.netlify.app/",
+        image: "../public/projects/cafe-svgl.webp",
+        tags: [TAGS.Html5, TAGS.Css3],
+    },
+    {
+        title: "Rock & EDM Festival",
+        description:
+            "I've created a website to view the festivals in your city, using HTML and CSS.",
+        link: "https://exquisite-gumption-a54ffc.netlify.app/",
+        image: "../public/projects/festival-svgl.webp",
+        tags: [TAGS.Html5, TAGS.Css3],
+    },
 ];
 ---
 
-{
-    PROJECTS.map(({ title, description, link, github, image, tags }) => (
-        <article>
-            <h3 class="text-2xl font-semibold text-yellow-200">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
-            <ul class="grid grid-cols-4  gap-x-4 mb-2">
-                {tags.map((tag) => (
-                    <li class="flex mb-2">
-                        <span
-                            class={`flex justify-center gap-x-2 rounded-full tex-xs ${tag.class} py-1 px-2`}
-                        >
-                            <tag.icon class="size-6" />
-                            {tag.name}
-                        </span>
-                    </li>
-                ))}
-            </ul>
-            <img
-                class="rounded shadow-2xl shadow-white/10"
-                src={image}
-                alt={title}
-            />
-        </article>
-    ))
-}
+<div class="flex flex-col gap-y-16">
+    {
+        PROJECTS.map(({ title, description, link, github, image, tags }) => (
+            <article class="ml-4">
+                <h3 class="text-2xl font-semibold text-yellow-200">{title}</h3>
+                <p class="text-lg mb-4 text-pretty">{description}</p>
+                <ul class="grid grid-cols-4  gap-x-4 mb-2">
+                    {tags.map((tag) => (
+                        <li class="flex mb-2">
+                            <span
+                                class={`flex justify-center gap-x-2 rounded-full tex-xs ${tag.class} py-1 px-2`}
+                            >
+                                <tag.icon class="size-6" />
+                                {tag.name}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+                <img
+                    class="rounded shadow-2xl shadow-white/10"
+                    src={image}
+                    alt={title}
+                />
+                <footer class="flex gap-x-4 justify-end mt-2">
+                    {github && (
+                        <LinkButton href={github}>
+                            <GithubIcon class="size-6" />
+                            Code
+                        </LinkButton>
+                    )}
+
+                    {link && (
+                        <LinkButton href={link}>
+                            <LinkIcon href={link} class="size-6" />
+                            Preview
+                        </LinkButton>
+                    )}
+                </footer>
+            </article>
+        ))
+    }
+</div>

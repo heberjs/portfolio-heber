@@ -1,16 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Badge from "../components/Badge.astro";
-import SocialPill from "../components/SocialPill.astro";
-import GithubIcon from "../icons/GithubIcon.astro";
-import LinkedInIcon from "../icons/LinkedInIcon.astro";
-import MailIcon from "../icons/MailIcon.astro";
-import Experiencie from "../components/Experiencie.astro";
-import SectionContainer from "../components/SectionContainer.astro";
-import BriefCaseIcon from "../icons/BriefCaseIcon.astro";
-import ProjectIcon from "../icons/ProjectIcon.astro";
-import Projects from "../components/Projects.astro";
+import Layout from "@/layouts/Layout.astro";
+import Experiencie from "@/components/Experiencie.astro";
+import SectionContainer from "@/components/SectionContainer.astro";
+import BriefCaseIcon from "@/icons/BriefCaseIcon.astro";
+import ProjectIcon from "@/icons/ProjectIcon.astro";
+import Projects from "@/components/Projects.astro";
+import ProfileIcon from "@/icons/ProfileIcon.astro";
+import AboutMe from "@/components/AboutMe.astro";
+import Hero from "@/components/Hero.astro";
 ---
 
 <Layout
@@ -18,70 +15,31 @@ import Projects from "../components/Projects.astro";
 	description="Hire Heber Sanchez to create web applications and develop projects"
 >
 	<main class="px-4">
-		<SectionContainer class="py-44 pb-24">
-			<img
-				class="rounded-full size-12 mb-4 md:object-cover"
-				src="./public/perfilheber.jpeg"
-				alt="heber photo"
-			/>
-			<h1
-				class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
-			>
-				Welcome!, I'm Heber <div
-					class="flex justify-center items-center"
-				>
-					<a
-						href="https://www.linkedin.com/in/heber-sanchez"
-						target="_blank"
-						rel="noopener"
-						class="flex justify-center items-center"
-					>
-						<Badge> Available for hire</Badge>
-					</a>
-				</div>
-			</h1>
-			<h2 class="text-xl lg:text-2xl text-wrap max-x-[700px]">
-				<span class="opacity-80">Full Stack Developer </span><span
-					class="text-yellow-200 opacity-80"
-					>| Stack MERN | JavaScript - TypeScript | Node js | React |
-					Mongo | Express | TDD | JWT.
-				</span>
-				<div class="text-red-400 placeholder-opacity-85">
-					Based in Barcelona, Spain.
-				</div>
-			</h2>
-			<ul>
-				<nav class="flex gap-4 mt-8 flex-wrap">
-					<SocialPill
-						href="https://www.linkedin.com/in/heber-sanchez"
-					>
-						<LinkedInIcon class="size-4 md:size-6" />
-						LinkedIn
-					</SocialPill>
-					<SocialPill href="https://github.com/heberjs">
-						<GithubIcon class="size-4 md:size-6" />
-						Github
-					</SocialPill>
-					<SocialPill href="mailto:heberjsanchez@gmail.com">
-						<MailIcon class="size-4 md:size-6" />
-						heberjsanchez@gmail.com
-					</SocialPill>
-				</nav>
-			</ul>
+		<SectionContainer class="py-16 md:py-36">
+			<Hero>
+				<slot />
+			</Hero>
 		</SectionContainer>
 		<SectionContainer id="experience">
-			<h2 class="text-3xl font-semibold m-6 flex gap-x-3 items-center">
+			<h2 class="text-3xl font-semibold pb-8 flex gap-x-3 items-center">
 				<BriefCaseIcon class="size-7" />
 				Work Experience
 			</h2>
 			<Experiencie />
 		</SectionContainer>
 		<SectionContainer id="projects">
-			<h2 class="text-3xl font-semibold m-6 flex gap-x-3 items-center">
+			<h2 class="text-3xl font-semibold pb-8 flex gap-x-3 items-center">
 				<ProjectIcon class="size-7" />
 				Projects
 			</h2>
 			<Projects />
+		</SectionContainer>
+		<SectionContainer id="aboutme">
+			<h2 class="text-3xl font-semibold my-8 flex gap-x-3 items-center">
+				<ProfileIcon class="size-7" />
+				About me
+			</h2>
+			<AboutMe />
 		</SectionContainer>
 	</main>
 </Layout>

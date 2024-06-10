@@ -1,0 +1,29 @@
+---
+import Badge from "../components/Badge.astro";
+import SectionContainer from "@/components/SectionContainer.astro";
+import Layout from "../layouts/Layout.astro";
+import SocialPill from "@/components/SocialPill.astro";
+import LinkedInIcon from "@/icons/LinkedInIcon.astro";
+---
+
+<Layout
+    title="Design System porfolio.heber"
+    description="Portfolio Components Catalog"
+>
+    <SectionContainer class="py-44 pb-32 flex flex-col gap-y-10">
+        <article class="mb-10">
+            <h1 class="mb-4 text-xl font-semibold">&lt;Badge /&lt;</h1>
+
+            <Badge>Available for hire</Badge>
+        </article>
+        <article>
+            <h1 class="mb-4 text-xl font-semibold">&lt;SocialPill /&lt;</h1>
+            <div class="flex">
+                <SocialPill href="https://www.linkedin.com/in/heber-sanchez">
+                    <LinkedInIcon class="size-4 md:size-6" />
+                    LinkedIn
+                </SocialPill>
+            </div>
+        </article>
+    </SectionContainer>
+</Layout>
