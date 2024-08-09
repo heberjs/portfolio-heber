@@ -12,6 +12,7 @@ import GithubIcon from "../icons/GithubIcon.astro";
 import Html5 from "../icons/Html5.astro";
 import Css from "../icons/Css3.astro";
 import LinkIcon from "../icons/LinkIcon.astro";
+import Jesticon from "../icons/JestIcon.astro";
 const TAGS = {
     JAVASCRIPT: {
         name: "Javascript",
@@ -63,6 +64,11 @@ const TAGS = {
         class: "text-white",
         icon: Css,
     },
+    Jest: {
+        name: "Jest",
+        class: "text-white",
+        icon: Jesticon,
+    },
 };
 const PROJECTS = [
     {
@@ -80,6 +86,22 @@ const PROJECTS = [
             TAGS.TypeScript,
             TAGS.MongoDB,
             TAGS.Github,
+        ],
+    },
+    {
+        title: "Rick & Morty Api",
+        description:
+            "Developed a project using the Rick and Morty API to display all characters with various filters, including options to filter by location and episodes.",
+        link: "https://rick-and-morty-api-rouge.vercel.app/home",
+        github: "https://github.com/heberjs/rick-and-morty-api/tree/main",
+        image: "/projects/rick&morty.webp",
+        tags: [
+            TAGS.JAVASCRIPT,
+            TAGS.TAILWIND,
+            TAGS.REACT,
+            TAGS.NODE,
+            TAGS.Github,
+            TAGS.Jest,
         ],
     },
     {
